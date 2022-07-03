@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react'
 const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
-  const [data, setData] = useState({ klijent: '' })
+  const [data, setData] = useState({ klijent: '', broj: '' })
   const [list, setList] = useState([])
   const [edit, setEdit] = useState(false)
   const [editId, setEditId] = useState(null)
@@ -14,7 +14,7 @@ const AppProvider = ({ children }) => {
     const newData = { ...data, id: new Date().getTime().toString() }
 
     setList([...list, newData])
-    setData({ klijent: '' })
+    setData({ klijent: '', broj: '' })
     setEdit(false)
   }
 
@@ -35,7 +35,7 @@ const AppProvider = ({ children }) => {
       list.map((item) => {
         console.log(item)
         if (item.id === editId) {
-          return { ...item, klijent: editData }
+          return { ...item, klijent: editData, broj: editData }
         }
         return item
       })

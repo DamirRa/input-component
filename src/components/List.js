@@ -9,10 +9,13 @@ const List = () => {
   return (
     <div>
       {list.map((item) => {
-        const { id, klijent } = item
+        const { id, klijent, broj } = item
         return (
           <div key={id} className='list-container'>
             <h5>{klijent}</h5>
+            <EditBtn id={id} />
+            {id === editId && edit ? <EditField /> : null}
+            <h5>{broj}</h5>
             <EditBtn id={id} />
             {id === editId && edit ? <EditField /> : null}
           </div>
