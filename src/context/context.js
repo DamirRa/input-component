@@ -7,8 +7,7 @@ const AppProvider = ({ children }) => {
   const [list, setList] = useState([])
   const [edit, setEdit] = useState(false)
   const [editId, setEditId] = useState(null)
-  const [editData, setEditData] = useState({ editKlijent: '' })
-
+  const [editData, setEditData] = useState({ editKlijent: '', editBroj: '' })
   const handleSubmit = (e) => {
     e.preventDefault()
     const newData = { ...data, id: new Date().getTime().toString() }
@@ -25,6 +24,13 @@ const AppProvider = ({ children }) => {
     setData({ ...data, [name]: value })
   }
 
+  // const handleEditInput = (e) => {
+  //   const value = e.target.value
+  //   const name = e.target.name
+  //   console.log(name, value)
+  //   setEditData({ [name]: value })
+  // }
+
   const handleEditInput = (e) => {
     setEditData(e.target.value)
   }
@@ -33,9 +39,11 @@ const AppProvider = ({ children }) => {
     e.preventDefault()
     setList(
       list.map((item) => {
-        console.log(item)
         if (item.id === editId) {
-          return { ...item, klijent: editData, broj: editData }
+          return {
+            ...item,
+            klijent: editData,
+          }
         }
         return item
       })
@@ -45,9 +53,11 @@ const AppProvider = ({ children }) => {
 
   const handleEdit = (id) => {
     const editItem = list.find((item) => item.id === id)
+    console.log(editItem)
+    console.log(editData)
     setEdit(true)
     setEditId(editItem.id)
-    setEditData(editItem.klijent)
+    setEditData({ editKlijent: editItem.klijent, editBroj: editItem.broj })
   }
 
   return (
