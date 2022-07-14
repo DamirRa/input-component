@@ -3,18 +3,20 @@ import React, { useContext, useState } from 'react'
 const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
-  const [data, setData] = useState({ klijent: '' })
+  const [data, setData] = useState({ klijent: '', broj: '' })
   const [list, setList] = useState([])
   const [edit, setEdit] = useState(false)
   const [editId, setEditId] = useState(null)
-  const [editData, setEditData] = useState({ editKlijent: '' })
+  const [editData, setEditData] = useState('')
+  const [editing, setEditing] = useState(false)
+  const [editing2, setEditing2] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault()
     const newData = { ...data, id: new Date().getTime().toString() }
 
     setList([...list, newData])
-    setData({ klijent: '' })
+    setData({ klijent: '', broj: '' })
     setEdit(false)
   }
 
@@ -26,16 +28,26 @@ const AppProvider = ({ children }) => {
   }
 
   const handleEditInput = (e) => {
-    setEditData(e.target.value)
+    const value = e.target.value
+    const name = e.target.name
+    console.log(name, value)
+    setEditData((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
   }
 
   const handleEditInputSubmit = (e) => {
     e.preventDefault()
     setList(
       list.map((item) => {
-        console.log(item)
         if (item.id === editId) {
-          return { ...item, klijent: editData }
+          return {
+            ...item,
+
+            klijent: editData.klijent,
+            broj: editData.broj,
+          }
         }
         return item
       })
@@ -47,7 +59,7 @@ const AppProvider = ({ children }) => {
     const editItem = list.find((item) => item.id === id)
     setEdit(true)
     setEditId(editItem.id)
-    setEditData(editItem.klijent)
+    setEditData(editItem)
   }
 
   return (
@@ -64,6 +76,10 @@ const AppProvider = ({ children }) => {
         editData,
         editId,
         handleEditInputSubmit,
+        setEditing,
+        editing,
+        setEditing2,
+        editing2,
       }}
     >
       {children}

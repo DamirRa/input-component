@@ -16,6 +16,14 @@ const Form = () => {
           value={data.klijent}
           onChange={handleInput}
         />
+        <label htmlFor='broj'>broj</label>
+        <input
+          type='text'
+          name='broj'
+          id='broj'
+          value={data.broj}
+          onChange={handleInput}
+        />
         <button type='submit' onClick={handleSubmit}>
           unesi
         </button>
