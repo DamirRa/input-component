@@ -1,6 +1,6 @@
 import React from 'react'
 import { useGlobalContext } from '../context/context'
-import EditBtn from './EditBtn'
+import EditBtn, { EditBtn2 } from './EditBtn'
 import EditField from './EditField'
 import { EditFieldBroj } from './EditField'
 
@@ -17,7 +17,7 @@ const List = () => {
             <EditBtn id={id} />
             {id === editId && edit ? <EditField /> : null}
             <h5>{broj}</h5>
-            <EditBtn id={id} />
+            <EditBtn2 id={id} />
             {id === editId && edit ? <EditFieldBroj /> : null}
           </div>
         )

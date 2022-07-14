@@ -2,16 +2,16 @@ import React from 'react'
 import { useGlobalContext } from '../context/context'
 
 const EditField = () => {
-  const { editData, handleEditInput, handleEditInputSubmit } =
+  const { editData, handleEditInput, handleEditInputSubmit, editing } =
     useGlobalContext()
   return (
-    <form>
-      <label htmlFor='edit'>edit</label>
+    <form className={`${editing ? null : 'hide-input'}`}>
+      <label htmlFor='klijent'>klijent</label>
       <input
         type='text'
-        name='edit'
-        id='edit'
-        value={editData.editKlijent}
+        name='klijent'
+        id='klijent'
+        value={editData.klijent}
         onChange={handleEditInput}
       />
       <button type='submit' onClick={handleEditInputSubmit}>
@@ -21,16 +21,16 @@ const EditField = () => {
   )
 }
 export const EditFieldBroj = () => {
-  const { editData, handleEditInput, handleEditInputSubmit } =
+  const { editData, handleEditInput, handleEditInputSubmit, editing2 } =
     useGlobalContext()
   return (
-    <form>
-      <label htmlFor='broj'>edit</label>
+    <form className={`${editing2 ? null : 'hide-input'}`}>
+      <label htmlFor='broj'>broj</label>
       <input
         type='text'
         name='broj'
         id='broj'
-        value={editData.editBroj}
+        value={editData.broj}
         onChange={handleEditInput}
       />
       <button type='submit' onClick={handleEditInputSubmit}>

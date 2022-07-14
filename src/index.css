@@ -17,3 +17,17 @@ code {
   align-items: center;
   gap: 2rem;
 }
+
+.edit-inputs {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hide-input {
+  display: none;
+}
+
+.blue {
+  color: blue;
+}
