@@ -5,7 +5,7 @@ const EditField = () => {
   const { editData, handleEditInput, handleEditInputSubmit, editing } =
     useGlobalContext()
   return (
-    <form className={`${editing ? null : 'hide-input'}`}>
+    <form className={`${editing.klijent ? 'edit-inputs' : 'hide-input'}`}>
       <label htmlFor='klijent'>klijent</label>
       <input
         type='text'
@@ -21,10 +21,10 @@ const EditField = () => {
   )
 }
 export const EditFieldBroj = () => {
-  const { editData, handleEditInput, handleEditInputSubmit, editing2 } =
+  const { editData, handleEditInput, handleEditInputSubmit, editing } =
     useGlobalContext()
   return (
-    <form className={`${editing2 ? null : 'hide-input'}`}>
+    <form className={`${editing.broj ? 'edit-inputs' : 'hide-input'}`}>
       <label htmlFor='broj'>broj</label>
       <input
         type='text'

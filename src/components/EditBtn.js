@@ -3,7 +3,7 @@ import { FaRegEdit } from 'react-icons/fa'
 import { useGlobalContext } from '../context/context'
 
 const EditBtn = ({ id }) => {
-  const { handleEdit, setEditing, setEditing2 } = useGlobalContext()
+  const { handleEdit, setEditing } = useGlobalContext()
 
   return (
     <div>
@@ -11,8 +11,11 @@ const EditBtn = ({ id }) => {
         type='button'
         onClick={() => {
           handleEdit(id)
-          setEditing(true)
-          setEditing2(false)
+
+          setEditing((prev) => ({
+            ...!prev,
+            klijent: true,
+          }))
         }}
       >
         <FaRegEdit />
@@ -21,7 +24,7 @@ const EditBtn = ({ id }) => {
   )
 }
 export const EditBtn2 = ({ id }) => {
-  const { handleEdit, setEditing2, setEditing } = useGlobalContext()
+  const { handleEdit, setEditing } = useGlobalContext()
 
   return (
     <div>
@@ -29,8 +32,11 @@ export const EditBtn2 = ({ id }) => {
         type='button'
         onClick={() => {
           handleEdit(id)
-          setEditing2(true)
-          setEditing(false)
+
+          setEditing((prev) => ({
+            ...!prev,
+            broj: true,
+          }))
         }}
       >
         <FaRegEdit />

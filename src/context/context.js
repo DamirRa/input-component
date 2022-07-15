@@ -8,8 +8,7 @@ const AppProvider = ({ children }) => {
   const [edit, setEdit] = useState(false)
   const [editId, setEditId] = useState(null)
   const [editData, setEditData] = useState('')
-  const [editing, setEditing] = useState(false)
-  const [editing2, setEditing2] = useState(false)
+  const [editing, setEditing] = useState({ broj: false, klijent: false })
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -30,7 +29,7 @@ const AppProvider = ({ children }) => {
   const handleEditInput = (e) => {
     const value = e.target.value
     const name = e.target.name
-    console.log(name, value)
+
     setEditData((prev) => ({
       ...prev,
       [name]: value,
@@ -78,8 +77,6 @@ const AppProvider = ({ children }) => {
         handleEditInputSubmit,
         setEditing,
         editing,
-        setEditing2,
-        editing2,
       }}
     >
       {children}
