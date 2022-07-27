@@ -1,3 +1,11 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -16,6 +24,9 @@ code {
   display: flex;
   align-items: center;
   gap: 2rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed grey;
 }
 
 .edit-inputs {
@@ -28,6 +39,86 @@ code {
   display: none;
 }
 
-.blue {
-  color: blue;
+/* modal */
+
+.modal-container {
+  display: grid;
+  place-items: center;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.8);
+  inset: 0;
+  z-index: 55;
+}
+
+.show-modal {
+  border: 2px solid white;
+  padding: 4rem;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-control {
+  display: grid;
+  background-color: transparent;
+}
+.modal-control h5 {
+  color: white;
+  font-style: bold;
+  font-size: 1.2rem;
+}
+
+.btn-control {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-control button {
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 2rem;
+  padding: 4px;
+}
+
+.input-container {
+  display: grid;
+  width: 200px;
+  gap: 5px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.container {
+  display: grid;
+  width: 90vw;
+  grid-template-columns: repeat(3, 200px);
+  gap: 6px;
+  justify-content: center;
+  /* place-items: center; */
+}
+
+.form-container button {
+  width: 100px;
+}
+
+.form-container {
+  display: grid;
+  place-items: center;
+}
+
+.form-control {
+  display: grid;
+  width: 90vw;
+  margin: 0 auto;
+  place-items: center;
+}
+
+.main-list {
+  margin-top: 4.5rem;
+  border: 2px solid black;
+  padding: 1.5rem 1rem;
+}
+
+.main-list List {
+  border-bottom: 1px dashed gray;
 }

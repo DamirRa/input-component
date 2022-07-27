@@ -1,7 +1,7 @@
 import React from 'react'
 import { useGlobalContext } from '../context/context'
 
-const EditField = () => {
+const EditFieldKlijent = () => {
   const { editData, handleEditInput, handleEditInputSubmit, editing } =
     useGlobalContext()
   return (
@@ -39,5 +39,24 @@ export const EditFieldBroj = () => {
     </form>
   )
 }
+export const EditFieldDatum = () => {
+  const { editData, handleEditInput, handleEditInputSubmit, editing } =
+    useGlobalContext()
+  return (
+    <form className={`${editing.datum ? 'edit-inputs' : 'hide-input'}`}>
+      <label htmlFor='broj'>datum</label>
+      <input
+        type='text'
+        name='datum'
+        id='datum'
+        value={editData.datum}
+        onChange={handleEditInput}
+      />
+      <button type='submit' onClick={handleEditInputSubmit}>
+        edit
+      </button>
+    </form>
+  )
+}
 
-export default EditField
+export default EditFieldKlijent

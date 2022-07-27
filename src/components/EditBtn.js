@@ -23,7 +23,7 @@ const EditBtn = ({ id }) => {
     </div>
   )
 }
-export const EditBtn2 = ({ id }) => {
+export const EditBtnBroj = ({ id }) => {
   const { handleEdit, setEditing } = useGlobalContext()
 
   return (
@@ -36,6 +36,27 @@ export const EditBtn2 = ({ id }) => {
           setEditing((prev) => ({
             ...!prev,
             broj: true,
+          }))
+        }}
+      >
+        <FaRegEdit />
+      </button>
+    </div>
+  )
+}
+export const EditBtnDatum = ({ id }) => {
+  const { handleEdit, setEditing } = useGlobalContext()
+
+  return (
+    <div>
+      <button
+        type='button'
+        onClick={() => {
+          handleEdit(id)
+
+          setEditing((prev) => ({
+            ...!prev,
+            datum: true,
           }))
         }}
       >
