@@ -3,20 +3,23 @@ import React, { useContext, useState } from 'react'
 const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
-  const [data, setData] = useState({ klijent: '', broj: '' })
+  const [data, setData] = useState({ klijent: '', broj: '', datum: '' })
   const [list, setList] = useState([])
   const [edit, setEdit] = useState(false)
   const [editId, setEditId] = useState(null)
   const [editData, setEditData] = useState('')
-  const [editing, setEditing] = useState(false)
-  const [editing2, setEditing2] = useState(false)
+  const [editing, setEditing] = useState({
+    broj: false,
+    klijent: false,
+    datum: false,
+  })
 
   const handleSubmit = (e) => {
     e.preventDefault()
     const newData = { ...data, id: new Date().getTime().toString() }
 
     setList([...list, newData])
-    setData({ klijent: '', broj: '' })
+    setData({ klijent: '', broj: '', datum: '' })
     setEdit(false)
   }
 
@@ -30,7 +33,7 @@ const AppProvider = ({ children }) => {
   const handleEditInput = (e) => {
     const value = e.target.value
     const name = e.target.name
-    console.log(name, value)
+
     setEditData((prev) => ({
       ...prev,
       [name]: value,
@@ -47,6 +50,7 @@ const AppProvider = ({ children }) => {
 
             klijent: editData.klijent,
             broj: editData.broj,
+            datum: editData.datum,
           }
         }
         return item
@@ -61,6 +65,9 @@ const AppProvider = ({ children }) => {
     setEditId(editItem.id)
     setEditData(editItem)
   }
+  const handleDelete = (id) => {
+    setList(list.filter((item) => item.id !== id))
+  }
 
   return (
     <AppContext.Provider
@@ -69,6 +76,7 @@ const AppProvider = ({ children }) => {
         handleSubmit,
         data,
         list,
+        setList,
         handleInput,
         handleEdit,
         handleEditInput,
@@ -78,8 +86,7 @@ const AppProvider = ({ children }) => {
         handleEditInputSubmit,
         setEditing,
         editing,
-        setEditing2,
-        editing2,
+        handleDelete,
       }}
     >
       {children}

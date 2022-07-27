@@ -1,11 +1,11 @@
 import React from 'react'
 import { useGlobalContext } from '../context/context'
 
-const EditField = () => {
+const EditFieldKlijent = () => {
   const { editData, handleEditInput, handleEditInputSubmit, editing } =
     useGlobalContext()
   return (
-    <form className={`${editing ? null : 'hide-input'}`}>
+    <form className={`${editing.klijent ? 'edit-inputs' : 'hide-input'}`}>
       <label htmlFor='klijent'>klijent</label>
       <input
         type='text'
@@ -21,10 +21,10 @@ const EditField = () => {
   )
 }
 export const EditFieldBroj = () => {
-  const { editData, handleEditInput, handleEditInputSubmit, editing2 } =
+  const { editData, handleEditInput, handleEditInputSubmit, editing } =
     useGlobalContext()
   return (
-    <form className={`${editing2 ? null : 'hide-input'}`}>
+    <form className={`${editing.broj ? 'edit-inputs' : 'hide-input'}`}>
       <label htmlFor='broj'>broj</label>
       <input
         type='text'
@@ -39,5 +39,24 @@ export const EditFieldBroj = () => {
     </form>
   )
 }
+export const EditFieldDatum = () => {
+  const { editData, handleEditInput, handleEditInputSubmit, editing } =
+    useGlobalContext()
+  return (
+    <form className={`${editing.datum ? 'edit-inputs' : 'hide-input'}`}>
+      <label htmlFor='broj'>datum</label>
+      <input
+        type='text'
+        name='datum'
+        id='datum'
+        value={editData.datum}
+        onChange={handleEditInput}
+      />
+      <button type='submit' onClick={handleEditInputSubmit}>
+        edit
+      </button>
+    </form>
+  )
+}
 
-export default EditField
+export default EditFieldKlijent
