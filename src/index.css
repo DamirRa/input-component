@@ -6,6 +6,97 @@
   box-sizing: border-box;
 }
 
+:root {
+  /* colors */
+  /* primary */
+  --primaryColor-1: #0b0d25;
+  --primaryColor-2: #171b49;
+  --primaryColor-3: #22286e;
+  --primaryColor-4: #2e3692;
+  --primaryColor-5: #3943b7;
+  --primaryColor-6: #6169c5;
+  --primaryColor-7: #888ed4;
+  --primaryColor-8: #b0b4e2;
+  --primaryColor-9: #d7d9f1;
+  /* grey */
+  --grey-1: #f1f5f9;
+  --grey-2: #e2e8f0;
+  --grey-3: #cbd5e1;
+  --grey-4: #94a3b8;
+  --grey-5: #64748b;
+  --grey-6: #475569;
+  --grey-7: #334155;
+  --grey-8: #1e293b;
+  --grey-9: #0f172a;
+  /* utility colors */
+  --black: #222;
+  --white: #fff;
+  --red-light: #e70f21;
+  --red-dark: #842029;
+  --green-light: #d1e7dd;
+  --green-dark: #0f5132;
+  /* font family */
+  --headingText: 'Vollkorn', serif;
+  --bodyText: 'Open Sans', sans-serif;
+  --smallText: 0.75em;
+  /* rest of vars */
+  --backgroundColor: var(--grey-1);
+  --textColor: var(--grey-9);
+  --borderRadius: 7px;
+  --letterSpacing: 1px;
+  --mainTransition: all 0.3s ease-in-out;
+  --maxWidth: 1170px;
+  --fixedWidth: 600px;
+
+  /* box shadow */
+  --box-sdw-1: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --box-sdw-2: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --box-sdw-3: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --box-sdw-4: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+body {
+  background: var(--backgroundColor);
+  font-family: var(--bodyText);
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--textColor);
+}
+
+.btn {
+  cursor: pointer;
+  background: var(--primaryColor-5);
+  color: var(--white);
+  border: transparent;
+  border-radius: var(--borderRadius);
+  padding: 0.4rem 0.8rem;
+  letter-spacing: var(--letterSpacing);
+  text-transform: capitalize;
+  box-shadow: var(--box-sdw-2);
+  transition: var(--mainTransition);
+  display: inline-block;
+}
+.btn:hover {
+  background-color: var(--primaryColor-6);
+  box-shadow: var(--box-sdw-4);
+}
+
+.btn-light {
+  color: var(--primaryColor-2);
+  background: var(--primaryColor-7);
+}
+.btn-light:hover {
+  color: var(--primaryColor-4);
+  background: var(--primaryColor-6);
+}
+
+label {
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -18,15 +109,6 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-.list-container {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  margin-bottom: 0.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px dashed grey;
 }
 
 .edit-inputs {
@@ -102,23 +184,110 @@ code {
 }
 
 .form-container {
+  padding: 1rem 0;
   display: grid;
   place-items: center;
+  width: 90vw;
+  background: var(--white);
+  border-radius: var(--borderRadius);
+  box-shadow: var(--box-sdw-4);
 }
 
 .form-control {
   display: grid;
   width: 90vw;
+
   margin: 0 auto;
+  margin-top: 2rem;
   place-items: center;
 }
 
 .main-list {
+  width: 90vw;
   margin-top: 4.5rem;
-  border: 2px solid black;
+  border-radius: var(--borderRadius);
+  background: var(--white);
   padding: 1.5rem 1rem;
+  box-shadow: var(--box-sdw-4);
 }
 
 .main-list List {
   border-bottom: 1px dashed gray;
+}
+
+.header {
+  text-transform: capitalize;
+  display: grid;
+  grid-template-columns: repeat(3, 30%);
+  margin-left: 2rem;
+  margin-bottom: 1.2rem;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 1rem;
+  height: 100%;
+}
+.list-item section {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.list-item h5 {
+  width: 80%;
+  height: 100%;
+  word-wrap: break-word;
+  padding: 0.4rem;
+  background-color: var(--grey-2);
+  box-shadow: var(--box-sdw-2);
+  border-radius: var(--borderRadius);
+}
+
+.list-container {
+  display: grid;
+  grid-template-columns: repeat(3, 30%) 1fr;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed grey;
+}
+
+.delete-btn {
+  margin-left: 1.2rem;
+  background: var(--red-dark);
+}
+
+.delete-btn:hover {
+  background-color: var(--red-light);
+}
+
+.edit-btn {
+}
+
+.clear-btn {
+  margin-top: 0.5rem;
+  background-color: var(--red-dark);
+}
+.clear-btn:hover {
+  background-color: var(--red-light);
+}
+
+.clear-btn-container {
+  display: grid;
+  place-items: center;
+}
+
+.edit-field {
+  margin-top: 1rem;
+  width: 170%;
+}
+
+.edit-field textarea {
+  background: var(--grey-3);
+  font-size: 1.2rem;
+  border-radius: var(--borderRadius);
+  padding: 0.3rem;
 }

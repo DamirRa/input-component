@@ -8,9 +8,9 @@ const ClearAllBtn = () => {
     setModal(!modal)
   }
   return (
-    <div>
-      <button type='button' onClick={toggle}>
-        clear all
+    <div className='clear-btn-container'>
+      <button type='button' className='btn clear-btn' onClick={toggle}>
+        obriši sve
       </button>
       {modal && <Warning toggle={toggle} />}
     </div>
