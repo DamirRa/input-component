@@ -12,7 +12,8 @@ const Form = () => {
         <div className='container'>
           <article className='input-container'>
             <label htmlFor='klijent'>klijent</label>
-            <input
+            <textarea
+              rows='4'
               type='text'
               name='klijent'
               id='klijent'
@@ -22,7 +23,8 @@ const Form = () => {
           </article>
           <article className='input-container'>
             <label htmlFor='broj'>broj</label>
-            <input
+            <textarea
+              rows='4'
               type='text'
               name='broj'
               id='broj'
@@ -32,7 +34,8 @@ const Form = () => {
           </article>
           <article className='input-container'>
             <label htmlFor='broj'>datum</label>
-            <input
+            <textarea
+              rows='4'
               type='text'
               name='datum'
               id='datum'
@@ -41,11 +44,11 @@ const Form = () => {
             />
           </article>
         </div>
-        <button type='submit' onClick={handleSubmit}>
+        <button className='btn' type='submit' onClick={handleSubmit}>
           unesi
         </button>
       </form>
-      <div className='main-list'>
+      <div className={`${list.length > 0 ? 'main-list' : null}`}>
         <List />
         {list.length > 0 && <ClearAllBtn />}
       </div>

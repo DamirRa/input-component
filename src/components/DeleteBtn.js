@@ -6,7 +6,11 @@ const DeleteBtn = ({ id }) => {
   const { handleDelete } = useGlobalContext()
   return (
     <div>
-      <button type='button' onClick={() => handleDelete(id)}>
+      <button
+        type='button'
+        className='delete-btn btn'
+        onClick={() => handleDelete(id)}
+      >
         <FaTrashAlt />
       </button>
     </div>

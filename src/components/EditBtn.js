@@ -8,6 +8,7 @@ const EditBtn = ({ id }) => {
   return (
     <div>
       <button
+        className='edit-btn btn'
         type='button'
         onClick={() => {
           handleEdit(id)
@@ -29,6 +30,7 @@ export const EditBtnBroj = ({ id }) => {
   return (
     <div>
       <button
+        className='edit-btn btn'
         type='button'
         onClick={() => {
           handleEdit(id)
@@ -51,6 +53,7 @@ export const EditBtnDatum = ({ id }) => {
     <div>
       <button
         type='button'
+        className='edit-btn btn'
         onClick={() => {
           handleEdit(id)
 
