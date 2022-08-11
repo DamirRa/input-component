@@ -13,7 +13,6 @@ const Form = () => {
           <article className='input-container'>
             <label htmlFor='klijent'>klijent</label>
             <textarea
-              rows='4'
               type='text'
               name='klijent'
               id='klijent'
@@ -24,7 +23,6 @@ const Form = () => {
           <article className='input-container'>
             <label htmlFor='broj'>broj</label>
             <textarea
-              rows='4'
               type='text'
               name='broj'
               id='broj'
@@ -35,7 +33,6 @@ const Form = () => {
           <article className='input-container'>
             <label htmlFor='broj'>datum</label>
             <textarea
-              rows='4'
               type='text'
               name='datum'
               id='datum'
